@@ -2,7 +2,7 @@
 <html ng-app="slider-angular-app" ng-controller="rootCtrl">
 
 <head>
-    <title>Slider App</title>
+    <title>Angular Dynamic DropDown</title>
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -25,15 +25,15 @@
         <form>
             <div class="form-group">
                 <label>contry</label>
-                <my-country class="form-control" ng-model="country_id"></my-country>
+                <my-country class="form-control" resource="api/country.php" ng-model="country_id"></my-country>
             </div>
             <div class="form-group">
                 <label>State</label>
-                <my-state ng-model="state_id" class="form-control"></my-state>
+                <my-state ng-model="state_id" resource="api/state.php" class="form-control"></my-state>
             </div>
             <div class="form-group">
                 <label>City</label>
-                <my-city ng-model="city_id" class="form-control"></my-city>
+                <my-city ng-model="city_id" resource="api/city.php" class="form-control"></my-city>
             </div>
             <button ng-click="getAlldata()">Get All Current data</button>
         </form>

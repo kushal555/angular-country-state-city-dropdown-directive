@@ -11,13 +11,10 @@ app.directive('myCountry', [function($http) {
             $scope.city_id = null;
             $scope.states = [{ id: null, state_name: "Select state" }];
             $scope.cities = [{ id: null, city_name: "Select City" }];
-
-            $http.get('http://scotchbox.com/job-portal/public/api/admin/countries').success(function(data) {
+            console.log($attrs.ngModel);
+            $http.get($attrs.resource).success(function(data) {
                 $scope.countries = $scope.countries.concat(data);
                 $scope.mycountry = null;
-            }).
-            error(function(err) {
-                $scope.countries = [];
             });
 
             $scope.get_states = function($key) {
@@ -43,12 +40,9 @@ app.directive('myState', [function() {
                 $scope.cities = [{ id: null, city_name: "Select City" }];
                 $scope.city_id = null;
                 if (newValue) {
-                    $http.get('http://scotchbox.com/job-portal/public/api/admin/states/' + newValue).success(function(data) {
+                    $http.get($attrs.resource + "?country_id="+newValue).success(function(data) {
                         $scope.states = $scope.states.concat(data);
                         $scope.state_id = null;
-                    }).
-                    error(function(err) {
-                        $scope.states = [];
                     });
                 }
             });
@@ -67,12 +61,9 @@ app.directive('myCity', [function() {
         controller: function($scope, $element, $attrs, $transclude, $http) {
             $scope.$watch('state_id', function(newValue, oldValue) {
                 if (newValue) {
-                    $http.get('http://scotchbox.com/job-portal/public/api/admin/cities/' + newValue).success(function(data) {
+                    $http.get($attrs.resource + "?state_id="+ newValue).success(function(data) {
                         $scope.cities = $scope.cities.concat(data);
                         $scope.city_id = null;
-                    }).
-                    error(function(err) {
-                        $scope.cities = [];
                     });
                 }
             });
