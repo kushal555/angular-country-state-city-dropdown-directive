@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="slider-angular-app" ng-controller="rootCtrl">
+
+<head>
+    <title>Slider App</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.10.3/TweenMax.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <!-- Directives -->
+    <script type="text/javascript" src="common/directives/gridDirective.js"></script>
+    <script type="text/javascript" src="common/directives/selectAllOnFocus.js"></script>
+    <script type="text/javascript" src="common/directives/countryStateCityDirective.js"></script>
+    <script type="text/javascript" src="common/directives/sliderDirective.js"></script>
+</head>
+
+<body>
+    <!-- <my-slider images="slides"><my-slider> -->
+    <div class="col-md-6">
+        <form>
+            <div class="form-group">
+                <label>contry</label>
+                <my-country class="form-control" ng-model="country_id"></my-country>
+            </div>
+            <div class="form-group">
+                <label>State</label>
+                <my-state ng-model="state_id" class="form-control"></my-state>
+            </div>
+            <div class="form-group">
+                <label>City</label>
+                <my-city ng-model="city_id" class="form-control"></my-city>
+            </div>
+            <button ng-click="getAlldata()">Get All Current data</button>
+        </form>
+    </div>
+</body>
+
+</html>

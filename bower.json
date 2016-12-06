@@ -1,0 +1,24 @@
+{
+  "name": "slider-angularjs-app",
+  "authors": [
+    "kushal <kushal.suthar@agileinfoways.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.9",
+    "angular-animate": "^1.5.9",
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7"
+  }
+}
